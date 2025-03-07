@@ -1,11 +1,9 @@
 import React from 'react';
 
-const Home = () =>{
-    return(
-        <div>
-            <h1>Welcome to the Home Page!</h1>
-        </div>
-    )
-}
+import Hero from '../sections/Hero';
+
+const Home = () => {
+  return <Hero />;
+};
 
 export default Home;
