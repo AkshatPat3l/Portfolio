@@ -16,10 +16,27 @@ const Navbar = () => {
           Akshat Patel
         </Link>
         <div className="hidden md:flex space-x-6">
-          <Link className="hover:text-gray-400" to="/">Home</Link>
-          <Link className="hover:text-gray-400" to="/projects">Projects</Link>
-          <Link className="hover:text-gray-400" to="/about">About</Link>
-          <Link className="hover:text-gray-400" to="/contact">Contact</Link>
+          <Link className="hover:text-gray-400" to="/">
+            Home
+          </Link>
+          <a
+            href="#projects"
+            className="hover:text-gray-400 cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              document
+                .getElementById("projects")
+                ?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            Projects
+          </a>
+          <Link className="hover:text-gray-400" to="/about">
+            About
+          </Link>
+          <Link className="hover:text-gray-400" to="/contact">
+            Contact
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -31,10 +48,39 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden flex flex-col items-center bg-gray-800 py-4 space-y-4">
-          <Link className="hover:text-gray-400" to="/" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link className="hover:text-gray-400" to="/projects" onClick={() => setIsOpen(false)}>Projects</Link>
-          <Link className="hover:text-gray-400" to="/about" onClick={() => setIsOpen(false)}>About</Link>
-          <Link className="hover:text-gray-400" to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+          <Link
+            className="hover:text-gray-400"
+            to="/"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </Link>
+          <a
+  href="#projects"
+  className="hover:text-gray-400 cursor-pointer"
+  onClick={(e) => {
+    e.preventDefault();
+    document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
+    setIsOpen(false); // Close the mobile menu after clicking
+  }}
+>
+  Projects
+</a>
+
+          <Link
+            className="hover:text-gray-400"
+            to="/about"
+            onClick={() => setIsOpen(false)}
+          >
+            About
+          </Link>
+          <Link
+            className="hover:text-gray-400"
+            to="/contact"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact
+          </Link>
         </div>
       )}
     </nav>
